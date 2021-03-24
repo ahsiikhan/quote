@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+:root{
+	--bg-black-900:#000000;
+	--bg-black-100:#dddddd;
+	--bg-black-50:#eff0f4;
+	--bg-opacity:rgba(255,255,255,0.5);
+	--text-black-900:#000000;
+	--text-black-700:#555555;
+	--text-black-600:#666666;
+	--text-black-300:#bbbbbb;
+	--outline-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
+	--outline-shadow-0: 0px 0px 0px #d0d0d0, 0 0 0 #f8f8f8;
+	--inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+	--inner-shadow-0:inset 0 0 0 #d0d0d0, inset 0 0 0 #f8f8f8;
+}
+*{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', Times, serif;
+        }
+.container{
+        background-color: #f1f2f6;
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+}
+.inner{
+    width: 80vw;
+    height: 80vh;
+    background:#57606f;
+    background-position: center;
+    background-size:cover;
+    box-shadow: 0 10px 20px -6px #000;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.box{
+    width:70vw;
+    height: 70vh;
+    position: relative;
+    border:3px dotted #f1f2f6;
+}
+.box img{
+    width:15%;
+    float:right;
+    cursor: pointer;
+}
+.text{
+    width:85%;
+    color:white;
+    font-size: 17px;
+    font-weight: 500;
+    position: absolute;
+    text-align: left;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.text .quotes{
+    font-family: 'Dancing Script', cursive;
+    font-size: 27px;
+    font-weight: 500;
+}
+.text .author{
+    text-align: right;
+    margin-top:40px;
+    font-size: 15px;
+    font-family: comic Sans Ms;
+}
+button{
+    width:200px;
+    height: 35px;
+    outline: none;
+    position: fixed;
+    color:black;
+    position: absolute;
+    left:50%;
+    border:none;
+    top:50%;
+    transform: translate(-50%, 550%);
+    font-weight: 600;
+    font-family:comic Sans Ms ;
+    font-size: 14px;
+    box-shadow: var(--outline-shadow-0);
+    cursor:pointer;
+}
+button:hover{
+    background-color:#f1f2f6;
+    color:black;
+    transition: all 0.3s ease;
+    border:none;
+    
+}
