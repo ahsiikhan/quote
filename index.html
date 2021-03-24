@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <a href="https://ahsiikhan.github.io/servicx"><img src="images/logo.png" alt="LOGO"  style="width:150px"></a>
+        <div class="inner">
+            <div class="box">
+                <p class="img">
+                    <img src="images/twitter.png" alt="Tweet" title="tweet" id="tweet">
+                </p>
+                <div class="text">
+                    <p id="quotes" class="quotes">loading.....</p>
+                    <p id="author" class="author"></p>
+                 <label class="button">
+                     <button id="newQuotes">New Quote</button>
+                 </label>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+       const quotes= document.getElementById("quotes");
+       const author= document.getElementById("author");
+       const newQuotes= document.getElementById("newQuotes");
+       const tweet= document.getElementById("tweet");
+
+        let realData="";
+        let quotesData="";
+       
+        const getNew =()=>{
+           let randomNum=  Math.floor(Math.random()*1600);
+           quotesData= realData[randomNum];
+           quotes.innerText = `"${quotesData.text}"`;
+        //    author.innerText = quotesData.author;
+
+        if(quotesData.author== null){
+            author.innerText="By Unknown";
+        }
+        else{
+            author.innerText=`By ${quotesData.author}`;
+        }
+           
+        };
+
+        const tweetNow=()=>{
+            let tweetlink= `https://twitter.com/intent/tweet?text=${quotesData.text} `;
+            window.open(tweetlink);
+        };
+        const getQuotes = async ()=>{
+            const api="https://type.fit/api/quotes";
+            try{
+                let data= await fetch(api);
+                realData= await data.json();
+                
+                getNew();
+                // console.log(realData.length);
+
+            }catch(error){}
+        };
+        
+        getQuotes();
+        newQuotes.addEventListener("click", getNew);
+        tweet.addEventListener("click", tweetNow);
+    </script>
+</body>
+</html>
